@@ -1,7 +1,9 @@
 FROM julia:1.5.1-alpine
 
 ADD jupyter /usr/local/bin/jupyter
+RUN apk add git
 
+# Binder stuff
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -19,4 +21,3 @@ USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-RUN apk add git
