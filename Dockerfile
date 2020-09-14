@@ -1,8 +1,9 @@
 FROM python:3.7-slim
+
 # install the notebook package
 RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache notebook
-#    && pip install --no-cache-dir jupyter-server-proxy
+    pip install --no-cache notebook && \
+    pip install --no-cache-dir jupyter-server-proxy
 
 
 # create user with a home directory
