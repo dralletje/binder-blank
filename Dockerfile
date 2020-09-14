@@ -21,3 +21,6 @@ RUN usermod -l ${NB_USER} pluto
 
 WORKDIR ${HOME}
 USER ${USER}
+
+ENTRYPOINT []
+CMD []
