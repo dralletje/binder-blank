@@ -12,17 +12,18 @@ RUN pip3 install --no-cache --upgrade pip && \
     pip3 install --no-cache-dir jupyter-server-proxy
 
 # create user with a home directory
-ARG NB_USER
-ARG NB_UID
+ARG NB_USER=jovyan
+ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
-RUN mkdir $HOME
-
+RUN echo ${NB_USER}
 RUN usermod -l ${NB_USER} pluto
+RUN mkdir -p ${HOME}
+RUN chown -R ${NB_USER} ${HOME}
 
-WORKDIR ${HOME}
 USER ${USER}
+WORKDIR ${HOME}
 
 ENTRYPOINT []
 CMD []
