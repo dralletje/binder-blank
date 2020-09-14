@@ -1,6 +1,7 @@
 # FROM python:3.7-slim
 FROM debian:buster-slim
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install python3
 
 # install the notebook package
