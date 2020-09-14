@@ -1,7 +1,11 @@
 FROM julia:1.5.1-alpine
 
-ADD jupyter /usr/local/bin/jupyter
-RUN apk add git
+RUN apt-get update \
+    && apt-get -y install --no-install-recommends python3-pip \
+    && pip3 install --no-cache-dir -vU setuptools
+
+RUN pip3 install --no-cache-dir notebook==5.* \
+    && pip3 install --no-cache-dir jupyter-server-proxy
 
 # Binder stuff
 ARG NB_USER=jovyan
@@ -16,10 +20,7 @@ RUN adduser --disabled-password \
     ${NB_USER}
 
 # Make sure the contents of our repo are in ${HOME}
-COPY jupyter ${HOME}
 WORKDIR ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-
-ENTRYPOINT ["sh", "./jupyter"]
