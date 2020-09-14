@@ -17,6 +17,8 @@ ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
+RUN mkdir $HOME
+
 RUN usermod -l ${NB_USER} pluto
 
 WORKDIR ${HOME}
