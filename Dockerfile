@@ -23,6 +23,11 @@ RUN mkdir -p ${HOME}
 RUN chown -R ${NB_USER} ${HOME}
 
 USER ${USER}
+
+WORKDIR /home/pluto
+COPY . /home/pluto
+RUN pip3 install .
+
 WORKDIR ${HOME}
 
 ENTRYPOINT []
