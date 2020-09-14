@@ -1,4 +1,4 @@
-FROM julia:1.5.1-alpine
+FROM julia:1.5.1
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends python3-pip \
