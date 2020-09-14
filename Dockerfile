@@ -1,14 +1,4 @@
-# FROM python:3.7-slim
-FROM debian:buster-slim
-
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y python3 python3-pip
-
-# install the notebook package
-RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache notebook && \
-    pip install --no-cache-dir jupyter-server-proxy
-
+FROM python:3.7-slim
 
 # create user with a home directory
 ARG NB_USER
@@ -22,3 +12,5 @@ RUN adduser --disabled-password \
     ${NB_USER}
 WORKDIR ${HOME}
 USER ${USER}
+
+ENTRYPOINT python -m SimpleHTTPServer 8888
