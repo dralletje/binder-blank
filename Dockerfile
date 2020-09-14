@@ -1,4 +1,7 @@
-FROM python:3.7-slim
+# FROM python:3.7-slim
+FROM debian:buster-slim
+
+RUN apt-get update && apt-get install python3
 
 # install the notebook package
 RUN pip install --no-cache --upgrade pip && \
