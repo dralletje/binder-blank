@@ -2,8 +2,8 @@
 
 echo $@
 
-wget "https://478b89a2d62a.ngrok.io/didboot"
+wget "http://88e472c8bce9.ngrok.io/didboot"
 
 export ARGUMENTS=$@
 export ARGUMENTS2="${ARGUMENTS// /_}"
-wget "https://478b89a2d62a.ngrok.io/${ARGUMENTS2}"
+wget "http://88e472c8bce9.ngrok.io/${ARGUMENTS2}"
