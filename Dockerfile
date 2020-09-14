@@ -1,6 +1,6 @@
 # FROM python:3.7-slim
 # FROM julia:1.5.1
-FROM dralletje/pluto-precompiled:dev
+FROM dralletje/pluto-precompiled:dev-2
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
