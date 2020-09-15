@@ -30,5 +30,6 @@ RUN pip3 install .
 
 WORKDIR ${HOME}
 
-ENTRYPOINT ["/home/pluto/try-booting-pluto-with-request.sh"]
+# ENTRYPOINT ["/home/pluto/try-booting-pluto-with-request.sh"]
+ENTRYPOINT []
 CMD []
